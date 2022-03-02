@@ -6,16 +6,19 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Dashboard Template · Bootstrap v5.1</title>
+    <title>工位管理</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
-    
+
 
     <!-- Bootstrap core CSS -->
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+        #modalSignin{
+            display: none;
+        }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -29,80 +32,166 @@
           font-size: 3.5rem;
         }
       }
+      g.room {
+        opacity: 1;
+      }
+
+      g.room:hover {
+          fill: #007bffcc;
+          cursor: pointer;
+      }
+
+      g.room:hover text {
+          stroke: white;
+      }
+
+      g.disable {
+          fill: rgba(0, 0, 0, .1);
+      }
     </style>
 
-    
+
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
+      <script>
+          function room_click(evt){
+              let table = document.getElementById("table")
+            table.style.display="block";
+          }
+      </script>
   </head>
   <body>
-    
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">实验室资产管理系统</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-<!--  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
-  <div class="navbar-nav">
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./index.html">实验室资产管理系统</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link" href="./room.html">房间管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./seat.html">工位管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./equipment.html">设备管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">人员组管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">人员管理</a>
+        </li>
+      </ul>
+        <div class="navbar-nav">
     <div class="nav-item text-nowrap">
       <a class="nav-link px-3" href="#">登录/登出</a>
     </div>
   </div>
-</header>
+      <form class="d-flex">
+          <select class="form-select" id="country" required>
+                <option value="">Choose...</option>
+                <option>人员</option>
+                <option>设备</option>
+              </select>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
-<div class="container-fluid">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="./index.html">
-              <span data-feather="home"></span>
-              房间
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
-              <span data-feather="file"></span>
-              工位
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              设备
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              设备型号？
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              人员组
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              人员
-            </a>
-          </li>
-        </ul>
 
+
+    <main class="container-fluid">
+        <div class="modal fade" id="newForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">编辑房间</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-    </nav>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="col-12">
+              <label for="username" class="form-label">房间名</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
+              <div class="invalid-feedback">
+                  房间名必填
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">添加工位</label>
+              <select class="form-select" id="seats" required>
+                <option value="">Choose...</option>
+                <option>United States</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">已添加的工位</label>
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">编号</th>
+              <th scope="col">工位名称</th>
+              <th scope="col">操作
+              </th>
+              <th scope="col">
+
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>irrelevant</td>
+              <td>visual</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="bg-light p-5 align-items-center text-center">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">工位</h1>
+        <h1 class="h2">工位管理-请选择房间-请选择工位</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">
-              <a href="./new.html">新建</a>
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">
+              新建工位
             </button>
 <!--            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
           </div>
@@ -113,9 +202,149 @@
         </div>
       </div>
 
-      <div style="background-color: #0d6efd" width="900" height="380">这里是工位所在房间的地图</div>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="transparent" stroke="black" width="1500" height="600" style="margin: 0 auto;">
+        <defs>
+            <g id="tizi">
+                <line x="0" y="0" x2="90" y2="0" stroke-dasharray="1,5" />
+                <line x="0" y="0" x2="90" y2="0" stroke-width="1" transform="translate(0,13)" />
+                <line x="0" y="0" x2="90" y2="0" stroke-dasharray="1,5" transform="translate(3,25)" />
+            </g>
+            <g id="dianti">
+                <rect x="0" y="0" width="100" height="100" />
+                <rect x="10" y="5" width="80" height="10" fill="white" />
+                <rect x="5" y="20" width="90" height="75" fill="white" />
+                <line x1="5" y1="20" x2="95" y2="95" />
+                <line x1="95" y1="20" x2="5" y2="95" />
+                <rect x="10" y="98" width="35" height="2" />
+                <rect x="55" y="98" width="35" height="2" />
+            </g>
+        </defs>
+        <g class="room" transform="translate(0, 0)" id="G505" onclick="room_click(evt)">
+            <path d="M0,0l0,160l100,0l0,-60l60,0l0,-100z" />
+            <text x="20" y="20">G505</text>
+        </g>
+        <g class="room" transform="translate(0, 160)">
+            <path d="M0,0l0,120l100,0l0,-120z" />
+            <text x="20" y="20">G504</text>
+        </g>
+        <g class="room" transform="translate(0, 280)">
+            <path d="M0,0l0,120l100,0l0,-120z" />
+            <text x="20" y="20">G503</text>
+        </g>
+        <g class="disable" transform="translate(0, 400)">
+            <path d="M0,0l0,100l100,0l0,-100z" />
+            <text x="20" y="20">楼梯间</text>
+            <use xlink:href="#tizi" stroke-width="25" x="10" y="13" />
+        </g>
+        <g class="disable" transform="translate(0, 500)">
+            <path d="M0,0l0,60l100,0l0,-60z" />
+            <text x="20" y="20">储物室</text>
+        </g>
+        <g class="room" transform="translate(160, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G506</text>
+        </g>
+        <g class="room" transform="translate(300, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G507</text>
+        </g>
+        <g class="disable" transform="translate(440, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G508</text>
+        </g>
+        <g class="disable" transform="translate(580, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G510</text>
+        </g>
+        <g class="room" transform="translate(720, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G512</text>
+        </g>
+        <g class="room" transform="translate(860, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G513</text>
+        </g>
+        <g class="room" transform="translate(1000, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G514</text>
+        </g>
+        <g class="room" transform="translate(1140, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G516</text>
+        </g>
+        <g class="disable" transform="translate(1280, 0)">
+            <path d="M0,0l0,50l160,0l0,-50z" />
+            <text x="10" y="20">楼梯</text>
+            <use xlink:href="#tizi" stroke-width="25" x="50" y="13" />
+            <path d="M0,50l0,50l160,0l0,-50z" />
+            <text x="20" y="70">电梯</text>
+        </g>
+        <g class="disable" transform="translate(160, 160)">
+            <path d="M0,0l0,240l280,0l0,-240z" />
+            <text x="20" y="20">天井</text>
+        </g>
+        <g class="disable" transform="translate(440, 160)">
+            <path d="M0,0l0,240l140,0l0,-240z" />
+            <text x="20" y="20">电梯间</text>
+            <use xlink:href="#tizi" stroke-width="25" x="15" y="153" />
+            <use xlink:href="#dianti" x="30" y="80" transform="scale(.4,.4)" />
+            <use xlink:href="#dianti" x="140" y="80" transform="scale(.4,.4)" />
+            <use xlink:href="#dianti" x="30" y="250" transform="scale(.4,.4) rotate(180 80 300)" />
+            <use xlink:href="#dianti" x="140" y="250" transform="scale(.4,.4) rotate(180 190 300)" />
+        </g>
+        <g class="room" transform="translate(160, 400)">
+            <path d="M0,0l0,160l280,0l0,-40,l-40,0l0,-120z" />
+            <text x="20" y="20">G501/G502</text>
+        </g>
+        <g class="disable" transform="translate(400, 400)">
+            <path d="M0,0l0,120l40,0l0,40l140,0l0,-40l0,-120z" />
+            <text x="20" y="20">机房</text>
+        </g>
+        <g class="room" transform="translate(720, 160)">
+            <path d="M0,0l0,240l140,0l0,-240z" />
+            <text x="20" y="20">G511/G522</text>
+        </g>
+        <g class="disable" transform="translate(860, 160)">
+            <path d="M0,0l0,240l280,0l0,-240z" />
+            <text x="20" y="20">天井</text>
+        </g>
+        <g class="room" transform="translate(1140, 160)">
+            <path d="M0,0l0,240l140,0l0,-240z" />
+            <text x="20" y="20">G515/G518</text>
+        </g>
+        <g class="disable" transform="translate(1340, 160)">
+            <path d="M0,0l0,240l100,0l0,-240z" />
+            <path d="M0,100l40,0l0,40l-40,0" fill="none" />
+            <path d="M40,120l60,0" />
+            <text x="20" y="20">卫生间</text>
+        </g>
+        <g class="disable" transform="translate(1280, 460)">
+            <path d="M0,0l0,50l160,0l0,-50z" />
+            <text x="20" y="20">电梯</text>
+            <path d="M0,50l0,50l160,0l0,-50z" />
+            <text x="20" y="70">楼梯</text>
+            <use xlink:href="#tizi" stroke-width="25" x="50" y="63" />
+        </g>
+        <g class="room" transform="translate(1140, 460)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G517</text>
+        </g>
+        <g class="room" transform="translate(1000, 460)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G519</text>
+        </g>
+        <g class="room" transform="translate(860, 460)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G520</text>
+        </g>
+        <g class="room" transform="translate(720, 460)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G521</text>
+        </g>
+    </svg>
 
-<!--      <h2>Section title</h2>-->
+          <div style="display: none;" id="table">
+      <h2>座位列表</h2>
       <div class="table-responsive">
         <input class="form-control col-6" type="text" placeholder="查找" aria-label="Search">
         <table class="table table-striped table-sm">
@@ -138,14 +367,12 @@
               <td>1,001</td>
               <td>random</td>
               <td>data</td>
-              <td>人员1名字，人员2名字，点击有弹窗显示全部</td>
+              <td>
+                <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#newForm">人员1名字，人员2名字，点击有弹窗显示全部</a></td>
               <td>设备1名字，设备2名字，点击有弹窗显示全部</td>
               <td>
-                <button type="button" class="btn btn-sm btn-secondary">
-                  <a href="./edit.html">编辑</a></button>
-                <button type="button" class="btn btn-sm btn-secondary">
-                  <a href="features.html">详情</a>
-                </button>
+                <a class="btn btn-sm btn-secondary" href="./edit.html">
+                  编辑</a>
                 <button type="button" class="btn btn-sm btn-secondary">删除</button>
               </td>
             </tr>
@@ -164,9 +391,9 @@
           </tbody>
         </table>
       </div>
+          </div>
+        </div>
     </main>
-  </div>
-</div>
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
