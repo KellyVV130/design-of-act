@@ -54,9 +54,6 @@
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
       <script>
-          function room_click(evt){
-              window.open("./features.html", "_blank")
-          }
       </script>
   </head>
   <body>
@@ -70,16 +67,16 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./room.html">房间管理</a>
+          <a class="nav-link active" aria-current="page" href="./room-all.html">房间和工位管理</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./seat.html">工位管理</a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="./seat.html">工位管理</a>-->
+<!--        </li>-->
         <li class="nav-item">
           <a class="nav-link" href="./equipment.html">设备管理</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">人员组管理</a>
+          <a class="nav-link" href="group.html">人员组管理</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">人员管理</a>
@@ -120,7 +117,7 @@
             <div class="col-12">
               <label for="username" class="form-label">房间名</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="username" placeholder="G505" required>
+                <input type="text" class="form-control" id="roomname" placeholder="G505" required>
               <div class="invalid-feedback">
                   房间名必填
                 </div>
@@ -131,7 +128,7 @@
               <label for="country" class="form-label">添加工位
                 <a class="text-decoration-none px-1" href="./seat.html">没有无房间的工位，去添加</a>
               </label>
-              <select class="form-select" id="seats" required>
+              <select class="form-select" id="seats1" required>
                 <option value="">Choose...</option>
                 <option>工位1</option>
               </select>
@@ -273,11 +270,11 @@
     </div>
   </div>
 </div>
-      <div class="modal fade" id="newForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="newForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel3">新建房间</h5>
+        <h5 class="modal-title" id="exampleModalLabel12">新建工位</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -285,54 +282,58 @@
           <div class="row g-3">
 
             <div class="col-12">
-              <label for="username" class="form-label">房间名</label>
+              <label for="username" class="form-label">工位名称</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="newName" placeholder="房间名称" required>
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
               <div class="invalid-feedback">
-                  房间名必填
+                  工位名必填
                 </div>
               </div>
             </div>
 
             <div class="col-md-12">
-              <label for="country" class="form-label">添加工位
-                <a class="text-decoration-none px-1" href="./seat.html">没有无房间的工位，去添加</a></label>
-              <select class="form-select" id="newSeats" required>
+              <label for="country" class="form-label">选择所在房间</label>
+              <select class="form-select" id="room">
                 <option value="">Choose...</option>
-                <option>United States</option>
+                <option>G505</option>
+                <option>G506</option>
               </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
-              </div>
             </div>
 
             <div class="col-md-12">
-              <label for="country" class="form-label">已添加的工位</label>
+              <label for="country" class="form-label">添加使用者
+                  <a class="text-decoration-none float-right">去新建使用者</a></label>
+              <select class="form-select" id="seats">
+                <option value="">Choose...</option>
+                <option>张三</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">已添加的使用者</label>
               <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th scope="col">编号</th>
-              <th scope="col">工位名称</th>
-              <th scope="col">操作
-              </th>
+              <th scope="col">名称</th>
+              <th scope="col">身份</th>
+              <th scope="col">邮箱</th>
+              <th scope="col">电话</th>
               <th scope="col">
-
+                操作
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>1</td>
-              <td>random</td>
+              <td class="align-middle">1</td>
+              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle">硕士生</td>
+              <td class="align-middle">123@123.com</td>
+              <td class="align-middle">10086</td>
               <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
+                <button type="button" class="btn btn-sm btn-secondary">解除关系</button>
               </td>
             </tr>
           </tbody>
@@ -469,7 +470,7 @@
             <div class="col-md-12">
               <label for="country" class="form-label">添加使用者
                   <a class="text-decoration-none float-right">去新建使用者</a></label>
-              <select class="form-select" id="seats1">
+              <select class="form-select" id="seats14">
                 <option value="">Choose...</option>
                 <option>张三</option>
               </select>
@@ -506,31 +507,6 @@
         </table>
             </div>
             </div>
-            <div class="col-md-12">
-              <label for="country" class="form-label">在此房间的设备</label>
-              <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">资产编号</th>
-              <th scope="col">类别</th>
-              <th scope="col">负责人</th>
-              <th scope="col">使用者</th>
-              <th scope="col">操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="align-middle">1</td>
-              <td class="align-middle">台式机</td>
-              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
-              <td class="align-middle"><a class="text-decoration-none">李四</a></td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-            </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -546,10 +522,9 @@
         <h1 class="h2">房间管理-某房间</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editForm">
-              修改房间信息
-            </button>
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">新建房间</button>
+            <a type="button" class="btn btn-outline-secondary" href="room-all.html">返回</a>
+
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">新建工位</button>
           </div>
 <!--          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
 <!--            <span data-feather="calendar"></span>-->
@@ -558,9 +533,10 @@
         </div>
       </div>
 
-      <svg xmlns="http://www.w3.org/2000/svg" fill="transparent" stroke="black" width="1500" height="600" style="margin: 0 auto;">
-        <rect height="600" width="1500" style="fill:rgb(199,199,241);stroke-width:1;stroke:rgb(0,0,0)"/>
-    </svg>
+<!--      <svg xmlns="http://www.w3.org/2000/svg" fill="transparent" stroke="black" width="1500" height="600" style="margin: 0 auto;">-->
+<!--        <rect height="600" width="1500" style="fill:rgb(199,199,241);stroke-width:1;stroke:rgb(0,0,0)"/>-->
+<!--    </svg>-->
+          <img src="room.png" width="1500" height="600">
 
       <h2>座位列表</h2>
       <div class="table-responsive">
@@ -568,44 +544,27 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">编号</th>
-              <th scope="col">座位名称</th>
-              <th scope="col">所在房间</th>
-              <th scope="col">使用者</th>
-              <th scope="col">设备</th>
-              <th scope="col">操作
-              </th>
-              <th scope="col">
 
+              <th scope="col">座位名称</th>
+              <th scope="col">使用者</th>
+
+              <th scope="col">操作
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="align-middle">1,001</td>
-              <td class="align-middle">random</td>
-              <td class="align-middle">data</td>
+
+              <td class="align-middle">
+                G505-1</td>
               <td class="align-middle">
                 <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#allForm">人员1名字，人员2名字，点击有弹窗显示全部</a>
               </td>
-              <td class="align-middle">
-                <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#allForm2">设备1名字，设备2名字，点击有弹窗显示全部</a></td>
               <td>
                 <a class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#editForm2">
                   编辑</a>
 <!--                <a class="btn btn-sm btn-secondary" href="seat-manage.html">-->
 <!--                  详情</a>-->
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>人员1名字，人员2名字，点击有弹窗显示全部</td>
-              <td>设备1名字，设备2名字，点击有弹窗显示全部</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">编辑</button>
                 <button type="button" class="btn btn-sm btn-secondary">删除</button>
               </td>
             </tr>

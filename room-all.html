@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>工位管理</title>
+    <title>Dashboard Template · Bootstrap v5.1</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
@@ -16,9 +16,6 @@
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        #modalSignin{
-            display: none;
-        }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -55,25 +52,7 @@
     <link href="dashboard.css" rel="stylesheet">
       <script>
           function room_click(evt){
-              let table = document.getElementById("table")
-            table.style.display="block";
-            // let room = evt.target;
-            //   room.style.fill="#ad2323";
-              //TODO 换图
-              let button = document.getElementById("back");
-              button.style.display="block";
-          }
-          function choose_seat(){
-              let features = document.getElementById("seat")
-              features.style.display="block";
-          }
-          function goBack(){
-              //TODO 换图
-
-              let button = document.getElementById("back");
-              button.style.display="none";
-              let table = document.getElementById("table")
-            table.style.display="none";
+              window.open("./room.html", "_self")
           }
       </script>
   </head>
@@ -88,11 +67,11 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link" href="./room-all.html">房间管理</a>
+          <a class="nav-link active" aria-current="page" href="./room-all.html">房间和工位管理</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./seat.html">工位管理</a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="./seat.html">工位管理</a>-->
+<!--        </li>-->
         <li class="nav-item">
           <a class="nav-link" href="./equipment.html">设备管理</a>
         </li>
@@ -124,11 +103,27 @@
 
 
     <main class="container-fluid">
-        <div class="modal fade" id="newForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade" id="basic" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">新建工位</h5>
+        <h5 class="modal-title" id="exampleModalLabel4">选择操作（鼠标悬浮在房间上显示）</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-secondary" href="room.html" data-bs-dismiss="modal">管理房间</a>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">删除房间</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="modal fade" id="editForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">编辑房间</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -136,35 +131,247 @@
           <div class="row g-3">
 
             <div class="col-12">
-              <label for="username" class="form-label">工位名称</label>
+              <label for="username" class="form-label">房间名</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                <input type="text" class="form-control" id="username" placeholder="G505" required>
               <div class="invalid-feedback">
-                  工位名必填
+                  房间名必填
                 </div>
               </div>
             </div>
 
             <div class="col-md-12">
-              <label for="country" class="form-label">选择所在房间</label>
-              <select class="form-select" id="room">
+              <label for="country" class="form-label">添加工位
+                <a class="text-decoration-none px-1" href="./seat.html">没有无房间的工位，去添加</a>
+              </label>
+              <select class="form-select" id="seats" required>
                 <option value="">Choose...</option>
-                <option>G505</option>
-                <option>G506</option>
+                <option>工位1</option>
               </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
             </div>
 
             <div class="col-md-12">
-              <label for="country" class="form-label">添加使用者
-                  <a class="text-decoration-none float-right">去新建使用者</a></label>
-              <select class="form-select" id="seats">
-                <option value="">Choose...</option>
-                <option>张三</option>
-              </select>
+              <label for="country" class="form-label">已添加的工位</label>
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">编号</th>
+              <th scope="col">工位名称</th>
+              <th scope="col">操作
+              </th>
+              <th scope="col">
+
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="modal fade" id="newForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel3">新建房间</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+
+            <div class="col-12">
+              <label for="username" class="form-label">房间名</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" id="newName" placeholder="房间名称" required>
+              <div class="invalid-feedback">
+                  房间名必填
+                </div>
+              </div>
             </div>
 
             <div class="col-md-12">
-              <label for="country" class="form-label">已添加的使用者</label>
+              <label for="country" class="form-label">添加工位
+                <a class="text-decoration-none px-1" href="./seat.html">没有无房间的工位，去添加</a></label>
+              <select class="form-select" id="newSeats" required>
+                <option value="">Choose...</option>
+                <option>United States</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">已添加的工位</label>
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">编号</th>
+              <th scope="col">工位名称</th>
+              <th scope="col">操作
+              </th>
+              <th scope="col">
+
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>random</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="modal fade" id="allForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">某工位的全部使用者</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+            <div class="col-md-12">
               <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -193,8 +400,6 @@
           </tbody>
         </table>
             </div>
-            </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -203,7 +408,48 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="editForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="allForm2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel11">某工位的全部设备</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+            <div class="col-md-12">
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">资产编号</th>
+              <th scope="col">类别</th>
+              <th scope="col">负责人</th>
+              <th scope="col">使用者</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">1</td>
+              <td class="align-middle">台式机</td>
+              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle"><a class="text-decoration-none">李四</a></td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="editForm2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -308,106 +554,15 @@
     </div>
   </div>
 </div>
-      <div class="modal fade" id="allForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel1">某工位的全部使用者</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-
-            <div class="col-md-12">
-              <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">编号</th>
-              <th scope="col">名称</th>
-              <th scope="col">身份</th>
-              <th scope="col">邮箱</th>
-              <th scope="col">电话</th>
-              <th scope="col">
-                操作
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="align-middle">1</td>
-              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
-              <td class="align-middle">硕士生</td>
-              <td class="align-middle">123@123.com</td>
-              <td class="align-middle">10086</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
-                <button type="button" class="btn btn-sm btn-secondary">解除关系</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-            </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-      <div class="modal fade" id="allForm2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel11">某工位的全部设备</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-
-            <div class="col-md-12">
-              <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">资产编号</th>
-              <th scope="col">类别</th>
-              <th scope="col">负责人</th>
-              <th scope="col">使用者</th>
-              <th scope="col">操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="align-middle">1</td>
-              <td class="align-middle">台式机</td>
-              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
-              <td class="align-middle"><a class="text-decoration-none">李四</a></td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-            </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
         <div class="bg-light p-5 align-items-center text-center">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">工位管理-请选择房间-请选择工位</h1>
+        <h1 class="h2">房间管理</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-              <button type="button" class="btn btn-outline-secondary" onclick="goBack()" style="display: none;" id="back">
-                  返回</button>
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">
-              新建工位
-            </button>
-<!--            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
+<!--            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editForm">-->
+<!--              修改房间信息-->
+<!--            </button>-->
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">新建房间</button>
           </div>
 <!--          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
 <!--            <span data-feather="calendar"></span>-->
@@ -416,7 +571,6 @@
         </div>
       </div>
 
-            <!--TODO 选择完房间之后换图还是缩放？下面表格要不要-->
       <svg xmlns="http://www.w3.org/2000/svg" fill="transparent" stroke="black" width="1500" height="600" style="margin: 0 auto;">
         <defs>
             <g id="tizi">
@@ -557,49 +711,38 @@
             <text x="20" y="20">G521</text>
         </g>
     </svg>
-            </div>
 
-          <div style="display: none;" id="table" class="container">
-      <h2>座位列表</h2>
+      <h2>房间列表</h2>
       <div class="table-responsive">
         <input class="form-control col-6" type="text" placeholder="查找" aria-label="Search">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">编号</th>
-              <th scope="col">座位名称</th>
-              <th scope="col">所在房间</th>
-              <th scope="col">使用者</th>
-              <th scope="col">设备</th>
+              <th scope="col">房间名称</th>
+              <th scope="col">空闲座位数</th>
+              <th scope="col">总座位数</th>
               <th scope="col">操作
-              </th>
-              <th scope="col">
-
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>1,001</td>
-              <td><a class="text-decoration-none" href="seat-manage.html">random</a></td>
-              <td>data</td>
-              <td>
-                <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#allForm">人员1名字，人员2名字，点击有弹窗显示全部</a></td>
+              <td class="align-middle">
+                  <a class="text-decoration-none" href="room.html">G505</a></td>
+              <td class="align-middle">1</td>
+              <td class="align-middle">20</td>
                 <td>
-                    <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#allForm2">设备1名字，设备2名字，点击有弹窗显示全部</a>
-                  </td>
-              <td>
                 <a class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#editForm">
-                  选择</a>
+                  编辑</a>
+<!--                <a class="btn btn-sm btn-secondary" href="seat-manage.html">-->
+<!--                  详情</a>-->
                 <button type="button" class="btn btn-sm btn-secondary">删除</button>
               </td>
             </tr>
             <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>人员1名字，人员2名字，点击有弹窗显示全部</td>
-              <td>设备1名字，设备2名字，点击有弹窗显示全部</td>
+              <td>G506</td>
+              <td>3</td>
+              <td>30</td>
               <td>
                 <button type="button" class="btn btn-sm btn-secondary">编辑</button>
                 <button type="button" class="btn btn-sm btn-secondary">删除</button>
@@ -609,7 +752,7 @@
           </tbody>
         </table>
       </div>
-          </div>
+        </div>
     </main>
 
 

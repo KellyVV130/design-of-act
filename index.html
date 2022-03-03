@@ -55,7 +55,20 @@
     <link href="dashboard.css" rel="stylesheet">
       <script>
           function room_click(evt){
-              window.open("./room.html", "_self")
+              let buttons = document.getElementById("buttonGroup")
+              buttons.style.display="block";
+              let littleMap = document.getElementById("littleMap")
+              littleMap.style.display = "block";
+              //TODO 显示按钮，显示小地图，小地图显示高亮，大地图换成相应房间图。
+              //TODO 如果小地图里的房间点了，同样。所以可以复制代码。或者直接写到页面中
+              //TODO 如何做高亮：获取evt.target并修改style.fill
+          }
+          function goBack(){
+
+              let buttons = document.getElementById("buttonGroup")
+              buttons.style.display="none";
+              let littleMap = document.getElementById("littleMap")
+              littleMap.style.display = "none";
           }
       </script>
   </head>
@@ -70,16 +83,16 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link" href="./room.html">房间管理</a>
+          <a class="nav-link" href="./room-all.html">房间和工位管理</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./seat.html">工位管理</a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="./seat.html">工位管理</a>-->
+<!--        </li>-->
         <li class="nav-item">
           <a class="nav-link" href="./equipment.html">设备管理</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">人员组管理</a>
+          <a class="nav-link" href="group.html">人员组管理</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">人员管理</a>
@@ -184,9 +197,25 @@
     </div>
   </div>
 </div>
-        <div class="bg-light p-5 align-items-center text-center">
-
-
+        <div class="bg-light p-5 align-items-center text-center row g-5">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="h2"></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2" id="buttonGroup" style="display: none;">
+            <a type="button" class="btn btn-outline-primary" href="room.html">
+              查看房间
+            </a>
+            <button type="button" class="btn btn-outline-secondary" onclick="goBack()">返回总地图</button>
+          </div>
+<!--          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
+<!--            <span data-feather="calendar"></span>-->
+<!--            This week-->
+<!--          </button>-->
+        </div>
+      </div>
+<!--            <div class="col-1"></div>-->
+            <div id="wholeMap">
+            <!--TODO 点击房间之后，通过id获取这个div，并获得块中内容。在右下角放一个等比例矩形div，内部放块中内容。或者直接写在页面中-->
       <svg xmlns="http://www.w3.org/2000/svg" fill="transparent" stroke="black" width="1500" height="600" style="margin: 0 auto;">
         <defs>
             <g id="tizi">
@@ -327,8 +356,15 @@
             <text x="20" y="20">G521</text>
         </g>
     </svg>
+            </div>
 
             </div>
+
+                <div style="display:none;bottom: 50px;right: 50px;z-index: 20;position: fixed;width: auto;" id="littleMap">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="transparent" stroke="black" height="180" width="450">
+        <rect height="180" width="450" style="fill:rgb(199,199,241);stroke-width:1;stroke:rgb(0,0,0)"/>
+    </svg>
+                </div>
     </main>
 
 
