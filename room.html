@@ -106,8 +106,8 @@
 
 
     <main class="container-fluid">
-        <div class="modal fade" id="newForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade" id="editForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">编辑房间</h5>
@@ -120,7 +120,7 @@
             <div class="col-12">
               <label for="username" class="form-label">房间名</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                <input type="text" class="form-control" id="username" placeholder="G505" required>
               <div class="invalid-feedback">
                   房间名必填
                 </div>
@@ -128,10 +128,12 @@
             </div>
 
             <div class="col-md-12">
-              <label for="country" class="form-label">添加工位</label>
+              <label for="country" class="form-label">添加工位
+                <a class="text-decoration-none px-1" href="./seat.html">没有无房间的工位，去添加</a>
+              </label>
               <select class="form-select" id="seats" required>
                 <option value="">Choose...</option>
-                <option>United States</option>
+                <option>工位1</option>
               </select>
               <div class="invalid-feedback">
                 Please select a valid country.
@@ -156,7 +158,12 @@
             <tr>
               <td>1,001</td>
               <td>random</td>
-              <td>data</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
               <td>placeholder</td>
               <td>
                 <button type="button" class="btn btn-sm btn-secondary">删除</button>
@@ -165,8 +172,165 @@
             <tr>
               <td>1,002</td>
               <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="modal fade" id="newForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel3">新建房间</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+
+            <div class="col-12">
+              <label for="username" class="form-label">房间名</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" id="newName" placeholder="房间名称" required>
+              <div class="invalid-feedback">
+                  房间名必填
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">添加工位
+                <a class="text-decoration-none px-1" href="./seat.html">没有无房间的工位，去添加</a></label>
+              <select class="form-select" id="newSeats" required>
+                <option value="">Choose...</option>
+                <option>United States</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">已添加的工位</label>
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">编号</th>
+              <th scope="col">工位名称</th>
+              <th scope="col">操作
+              </th>
+              <th scope="col">
+
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>random</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>placeholder</td>
               <td>
                 <button type="button" class="btn btn-sm btn-secondary">删除</button>
               </td>
@@ -195,36 +359,29 @@
 
 
             <div class="col-md-12">
-              <label for="country" class="form-label">已添加的工位</label>
               <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th scope="col">编号</th>
-              <th scope="col">工位名称</th>
-              <th scope="col">操作
-              </th>
+              <th scope="col">名称</th>
+              <th scope="col">身份</th>
+              <th scope="col">邮箱</th>
+              <th scope="col">电话</th>
               <th scope="col">
-
+                操作
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
+              <td class="align-middle">1</td>
+              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle">硕士生</td>
+              <td class="align-middle">123@123.com</td>
+              <td class="align-middle">10086</td>
               <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
+                <button type="button" class="btn btn-sm btn-secondary">解除关系</button>
               </td>
             </tr>
           </tbody>
@@ -238,15 +395,161 @@
     </div>
   </div>
 </div>
+      <div class="modal fade" id="allForm2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel11">某工位的全部设备</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+            <div class="col-md-12">
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">资产编号</th>
+              <th scope="col">类别</th>
+              <th scope="col">负责人</th>
+              <th scope="col">使用者</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">1</td>
+              <td class="align-middle">台式机</td>
+              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle"><a class="text-decoration-none">李四</a></td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="editForm2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">管理工位</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+
+            <div class="col-12">
+              <label for="username" class="form-label">工位名称</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" id="username1" placeholder="Username" required>
+              <div class="invalid-feedback">
+                  工位名必填
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">选择所在房间</label>
+              <select class="form-select" id="room1">
+                <option value="">Choose...</option>
+                <option>G505</option>
+                <option>G506</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">添加使用者
+                  <a class="text-decoration-none float-right">去新建使用者</a></label>
+              <select class="form-select" id="seats1">
+                <option value="">Choose...</option>
+                <option>张三</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">已添加的使用者</label>
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">编号</th>
+              <th scope="col">名称</th>
+              <th scope="col">身份</th>
+              <th scope="col">邮箱</th>
+              <th scope="col">电话</th>
+              <th scope="col">
+                操作
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">1</td>
+              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle">硕士生</td>
+              <td class="align-middle">123@123.com</td>
+              <td class="align-middle">10086</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
+                <button type="button" class="btn btn-sm btn-secondary">解除关系</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+            </div>
+            <div class="col-md-12">
+              <label for="country" class="form-label">在此房间的设备</label>
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">资产编号</th>
+              <th scope="col">类别</th>
+              <th scope="col">负责人</th>
+              <th scope="col">使用者</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">1</td>
+              <td class="align-middle">台式机</td>
+              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle"><a class="text-decoration-none">李四</a></td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">删除</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
         <div class="bg-light p-5 align-items-center text-center">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">房间管理-某房间</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editForm">
               修改房间信息
             </button>
-<!--            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">新建房间</button>
           </div>
 <!--          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
 <!--            <span data-feather="calendar"></span>-->
@@ -279,19 +582,19 @@
           </thead>
           <tbody>
             <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>
+              <td class="align-middle">1,001</td>
+              <td class="align-middle">random</td>
+              <td class="align-middle">data</td>
+              <td class="align-middle">
                 <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#allForm">人员1名字，人员2名字，点击有弹窗显示全部</a>
               </td>
-              <td>设备1名字，设备2名字，点击有弹窗显示全部</td>
+              <td class="align-middle">
+                <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#allForm2">设备1名字，设备2名字，点击有弹窗显示全部</a></td>
               <td>
-                <a class="btn btn-sm btn-secondary" href="./edit.html">
+                <a class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#editForm2">
                   编辑</a>
-                <button type="button" class="btn btn-sm btn-secondary">
-                  <a href="features.html">详情</a>
-                </button>
+<!--                <a class="btn btn-sm btn-secondary" href="seat-manage.html">-->
+<!--                  详情</a>-->
                 <button type="button" class="btn btn-sm btn-secondary">删除</button>
               </td>
             </tr>

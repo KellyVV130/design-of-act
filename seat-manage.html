@@ -342,18 +342,89 @@
     </div>
   </div>
 </div>
-
-      <div class="modal fade" id="allForm2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel11">某工位的全部设备</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="bg-light p-5 align-items-center text-center">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">工位管理-某房间-某工位</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-outline-danger">
+              删除工位
+            </button>
+<!--            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
+          </div>
+<!--          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
+<!--            <span data-feather="calendar"></span>-->
+<!--            This week-->
+<!--          </button>-->
+        </div>
       </div>
-      <div class="modal-body">
+            </div>
 
+        <div class="container">
+          <form class="needs-validation" novalidate>
+          <div class="row g-3">
+
+            <div class="col-12">
+              <label for="username" class="form-label">工位名称</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" id="username11" placeholder="Username" required>
+              <div class="invalid-feedback">
+                  工位名必填
+                </div>
+              </div>
+            </div>
 
             <div class="col-md-12">
+              <label for="country" class="form-label">选择所在房间</label>
+              <select class="form-select" id="room11">
+                <option value="">Choose...</option>
+                <option>G505</option>
+                <option>G506</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">添加使用者
+                  <a class="text-decoration-none float-right">去新建使用者</a></label>
+              <select class="form-select" id="seats11">
+                <option value="">Choose...</option>
+                <option>张三</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">已添加的使用者</label>
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">编号</th>
+              <th scope="col">名称</th>
+              <th scope="col">身份</th>
+              <th scope="col">邮箱</th>
+              <th scope="col">电话</th>
+              <th scope="col">
+                操作
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">1</td>
+              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle">硕士生</td>
+              <td class="align-middle">123@123.com</td>
+              <td class="align-middle">10086</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
+                <button type="button" class="btn btn-sm btn-secondary">解除关系</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+            </div>
+            <div class="col-md-12">
+              <label for="country" class="form-label">在此房间的设备</label>
               <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -377,223 +448,10 @@
           </tbody>
         </table>
             </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-        <div class="bg-light p-5 align-items-center text-center">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">工位管理-请选择房间-请选择工位</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">
-              新建工位
-            </button>
-<!--            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
-          </div>
-<!--          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
-<!--            <span data-feather="calendar"></span>-->
-<!--            This week-->
-<!--          </button>-->
+              <button type="submit" class="btn btn-primary">提交</button>
+              <a type="submit" class="btn btn-secondary" href="seat.html">返回</a>
+        </form>
         </div>
-      </div>
-
-      <svg xmlns="http://www.w3.org/2000/svg" fill="transparent" stroke="black" width="1500" height="600" style="margin: 0 auto;">
-        <defs>
-            <g id="tizi">
-                <line x="0" y="0" x2="90" y2="0" stroke-dasharray="1,5" />
-                <line x="0" y="0" x2="90" y2="0" stroke-width="1" transform="translate(0,13)" />
-                <line x="0" y="0" x2="90" y2="0" stroke-dasharray="1,5" transform="translate(3,25)" />
-            </g>
-            <g id="dianti">
-                <rect x="0" y="0" width="100" height="100" />
-                <rect x="10" y="5" width="80" height="10" fill="white" />
-                <rect x="5" y="20" width="90" height="75" fill="white" />
-                <line x1="5" y1="20" x2="95" y2="95" />
-                <line x1="95" y1="20" x2="5" y2="95" />
-                <rect x="10" y="98" width="35" height="2" />
-                <rect x="55" y="98" width="35" height="2" />
-            </g>
-        </defs>
-        <g class="room" transform="translate(0, 0)" id="G505" onclick="room_click(evt)">
-            <path d="M0,0l0,160l100,0l0,-60l60,0l0,-100z" />
-            <text x="20" y="20">G505</text>
-        </g>
-        <g class="room" transform="translate(0, 160)">
-            <path d="M0,0l0,120l100,0l0,-120z" />
-            <text x="20" y="20">G504</text>
-        </g>
-        <g class="room" transform="translate(0, 280)">
-            <path d="M0,0l0,120l100,0l0,-120z" />
-            <text x="20" y="20">G503</text>
-        </g>
-        <g class="disable" transform="translate(0, 400)">
-            <path d="M0,0l0,100l100,0l0,-100z" />
-            <text x="20" y="20">楼梯间</text>
-            <use xlink:href="#tizi" stroke-width="25" x="10" y="13" />
-        </g>
-        <g class="disable" transform="translate(0, 500)">
-            <path d="M0,0l0,60l100,0l0,-60z" />
-            <text x="20" y="20">储物室</text>
-        </g>
-        <g class="room" transform="translate(160, 0)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G506</text>
-        </g>
-        <g class="room" transform="translate(300, 0)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G507</text>
-        </g>
-        <g class="disable" transform="translate(440, 0)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G508</text>
-        </g>
-        <g class="disable" transform="translate(580, 0)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G510</text>
-        </g>
-        <g class="room" transform="translate(720, 0)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G512</text>
-        </g>
-        <g class="room" transform="translate(860, 0)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G513</text>
-        </g>
-        <g class="room" transform="translate(1000, 0)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G514</text>
-        </g>
-        <g class="room" transform="translate(1140, 0)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G516</text>
-        </g>
-        <g class="disable" transform="translate(1280, 0)">
-            <path d="M0,0l0,50l160,0l0,-50z" />
-            <text x="10" y="20">楼梯</text>
-            <use xlink:href="#tizi" stroke-width="25" x="50" y="13" />
-            <path d="M0,50l0,50l160,0l0,-50z" />
-            <text x="20" y="70">电梯</text>
-        </g>
-        <g class="disable" transform="translate(160, 160)">
-            <path d="M0,0l0,240l280,0l0,-240z" />
-            <text x="20" y="20">天井</text>
-        </g>
-        <g class="disable" transform="translate(440, 160)">
-            <path d="M0,0l0,240l140,0l0,-240z" />
-            <text x="20" y="20">电梯间</text>
-            <use xlink:href="#tizi" stroke-width="25" x="15" y="153" />
-            <use xlink:href="#dianti" x="30" y="80" transform="scale(.4,.4)" />
-            <use xlink:href="#dianti" x="140" y="80" transform="scale(.4,.4)" />
-            <use xlink:href="#dianti" x="30" y="250" transform="scale(.4,.4) rotate(180 80 300)" />
-            <use xlink:href="#dianti" x="140" y="250" transform="scale(.4,.4) rotate(180 190 300)" />
-        </g>
-        <g class="room" transform="translate(160, 400)">
-            <path d="M0,0l0,160l280,0l0,-40,l-40,0l0,-120z" />
-            <text x="20" y="20">G501/G502</text>
-        </g>
-        <g class="disable" transform="translate(400, 400)">
-            <path d="M0,0l0,120l40,0l0,40l140,0l0,-40l0,-120z" />
-            <text x="20" y="20">机房</text>
-        </g>
-        <g class="room" transform="translate(720, 160)">
-            <path d="M0,0l0,240l140,0l0,-240z" />
-            <text x="20" y="20">G511/G522</text>
-        </g>
-        <g class="disable" transform="translate(860, 160)">
-            <path d="M0,0l0,240l280,0l0,-240z" />
-            <text x="20" y="20">天井</text>
-        </g>
-        <g class="room" transform="translate(1140, 160)">
-            <path d="M0,0l0,240l140,0l0,-240z" />
-            <text x="20" y="20">G515/G518</text>
-        </g>
-        <g class="disable" transform="translate(1340, 160)">
-            <path d="M0,0l0,240l100,0l0,-240z" />
-            <path d="M0,100l40,0l0,40l-40,0" fill="none" />
-            <path d="M40,120l60,0" />
-            <text x="20" y="20">卫生间</text>
-        </g>
-        <g class="disable" transform="translate(1280, 460)">
-            <path d="M0,0l0,50l160,0l0,-50z" />
-            <text x="20" y="20">电梯</text>
-            <path d="M0,50l0,50l160,0l0,-50z" />
-            <text x="20" y="70">楼梯</text>
-            <use xlink:href="#tizi" stroke-width="25" x="50" y="63" />
-        </g>
-        <g class="room" transform="translate(1140, 460)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G517</text>
-        </g>
-        <g class="room" transform="translate(1000, 460)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G519</text>
-        </g>
-        <g class="room" transform="translate(860, 460)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G520</text>
-        </g>
-        <g class="room" transform="translate(720, 460)">
-            <path d="M0,0l0,100l140,0l0,-100z" />
-            <text x="20" y="20">G521</text>
-        </g>
-    </svg>
-            </div>
-
-          <div style="display: none;" id="table" class="container">
-      <h2>座位列表</h2>
-      <div class="table-responsive">
-        <input class="form-control col-6" type="text" placeholder="查找" aria-label="Search">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">编号</th>
-              <th scope="col">座位名称</th>
-              <th scope="col">所在房间</th>
-              <th scope="col">使用者</th>
-              <th scope="col">设备</th>
-              <th scope="col">操作
-              </th>
-              <th scope="col">
-
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>
-                <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#allForm">人员1名字，人员2名字，点击有弹窗显示全部</a></td>
-                <td>
-                    <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#allForm2">设备1名字，设备2名字，点击有弹窗显示全部</a>
-                  </td>
-              <td>
-                <a class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#editForm">
-                  选择</a>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>人员1名字，人员2名字，点击有弹窗显示全部</td>
-              <td>设备1名字，设备2名字，点击有弹窗显示全部</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">编辑</button>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-          </div>
     </main>
 
 
