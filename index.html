@@ -59,6 +59,10 @@
               buttons.style.display="block";
               let littleMap = document.getElementById("littleMap")
               littleMap.style.display = "block";
+              let wholeMap = document.getElementById("wholeMap")
+              let roomMap = document.getElementById("roomMap")
+              wholeMap.style.display = "none";
+              roomMap.style.display = "block";
               //TODO 显示按钮，显示小地图，小地图显示高亮，大地图换成相应房间图。
               //TODO 如果小地图里的房间点了，同样。所以可以复制代码。或者直接写到页面中
               //TODO 如何做高亮：获取evt.target并修改style.fill
@@ -69,6 +73,10 @@
               buttons.style.display="none";
               let littleMap = document.getElementById("littleMap")
               littleMap.style.display = "none";
+              let wholeMap = document.getElementById("wholeMap")
+              let roomMap = document.getElementById("roomMap")
+              wholeMap.style.display = "block";
+              roomMap.style.display = "none";
           }
       </script>
   </head>
@@ -357,7 +365,9 @@
         </g>
     </svg>
             </div>
-
+<div id="roomMap" style="display: none;">
+    <img src="room.png" width="1500" height="600">
+</div>
             </div>
 
                 <div style="display:none;bottom: 50px;right: 50px;z-index: 20;position: fixed;width: auto;" id="littleMap">
