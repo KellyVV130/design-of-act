@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>人员管理</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+
+
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        #modalSignin{
+            display: none;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      g.room {
+        opacity: 1;
+      }
+
+      g.room:hover {
+          fill: #007bffcc;
+          cursor: pointer;
+      }
+
+      g.room:hover text {
+          stroke: white;
+      }
+
+      g.disable {
+          fill: rgba(0, 0, 0, .1);
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+      <script>
+          function room_click(evt){
+              window.open("./features.html", "_blank")
+          }
+      </script>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./index.html">实验室资产管理系统</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link" href="./room-all.html">房间和工位管理</a>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown">
+                <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#" role="button"
+                id="dropdown1">设备管理</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown1">
+                    <li><a class="dropdown-item" href="equipment.html">设备管理</a> </li>
+                    <li><a class="dropdown-item" href="equipment-model.html">设备型号管理</a> </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./group.html">人员管理</a>
+        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="person.html">人员管理</a>-->
+<!--        </li>-->
+      </ul>
+        <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a class="nav-link px-3" href="#">登录/登出</a>
+    </div>
+  </div>
+      <form class="d-flex">
+          <select class="form-select" id="country" required>
+                <option value="">Choose...</option>
+                <option>人员</option>
+                <option>设备</option>
+              </select>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+    <main class="container-fluid"><!--TODO 某些信息是保存还是从邮件系统获取-->>
+        <div class="modal fade" id="newForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">新建人员</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+
+            <div class="col-md-12">
+              <label class="form-label">人员姓名</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="人员姓名" required>
+              <div class="invalid-feedback">
+                  人员姓名必填
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">邮箱</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="邮箱" required>
+              <div class="invalid-feedback">
+                  邮箱必填
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">电话</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="电话" required>
+              <div class="invalid-feedback">
+                  电话必填
+                </div>
+              </div>
+            </div>
+
+              <div class="col-md-12"><hr class="dropdown-divider"> </div>
+
+            <div class="col-md-12">
+              <label class="form-label">身份？？</label>
+
+
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option>硕士生</option>
+                <option>博士生</option>
+                <option>教师生</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">年级？？</label>
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option>2017级</option>
+                <option>2018级</option>
+                <option>2019级</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">导师??</label>
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option>李四</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">所在人员组</label>
+
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option>大数据</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">负责的设备</label>
+
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option>S20202020</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">使用的设备</label>
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option>S20202020</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">分配工位
+                  <a class="text-decoration-none float-right">去新建工位</a></label>
+              <select class="form-select" id="seats114">
+                <option value="">Choose...</option>
+                <option>G505-1</option>
+              </select>
+            </div>
+
+            <div class="col-md-12"><!--TODO 要展示学生吗-->
+              已分配的工位
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">工位名</th>
+              <th scope="col">
+                操作
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">G505-1</td>
+              <td>
+                <a type="button" class="btn btn-sm btn-secondary" href="seat.html">详情</a>
+                <button type="button" class="btn btn-sm btn-danger">解除关系</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="modal fade" id="editForm" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">编辑人员</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+
+            <div class="col-md-12">
+              <label class="form-label">人员姓名</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="张三" required>
+              <div class="invalid-feedback">
+                  人员姓名必填
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">邮箱</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="123@123.com" required>
+              <div class="invalid-feedback">
+                  邮箱必填
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">电话</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="13315262232" required>
+              <div class="invalid-feedback">
+                  电话必填
+                </div>
+              </div>
+            </div>
+
+              <div class="col-md-12"><hr class="dropdown-divider"> </div>
+
+            <div class="col-md-12">
+              <label class="form-label">身份？？</label>
+
+
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option selected>硕士生</option>
+                <option>博士生</option>
+                <option>教师生</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">年级？？</label>
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option selected>2017级</option>
+                <option>2018级</option>
+                <option>2019级</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">导师??</label>
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option selected>李四</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">所在人员组</label>
+
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option selected>大数据</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">负责的设备</label>
+
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option selected>S20202020</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">使用的设备</label>
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option selected>S20202020</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">分配工位
+                  <a class="text-decoration-none float-right">去新建工位</a></label>
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option>G505-1</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              已分配的工位
+              <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">工位名</th>
+              <th scope="col">
+                操作
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">G505-1</td>
+              <td>
+                <a type="button" class="btn btn-sm btn-secondary" href="seat.html">详情</a>
+                <button type="button" class="btn btn-sm btn-danger">解除关系</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            </div>
+
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="bg-light p-5 align-items-center">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">大数据人员组</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+<!--              <select class="">-->
+<!--                <option value="">请选择人员组</option>-->
+<!--                <option>全部</option>-->
+<!--                <option selected>大数据</option>-->
+<!--                <option>实习生</option>-->
+<!--              </select>-->
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">
+              添加人员
+            </button>
+<!--            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
+          </div>
+<!--          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
+<!--            <span data-feather="calendar"></span>-->
+<!--            This week-->
+<!--          </button>-->
+        </div>
+      </div>
+
+
+
+            <h2>人员组列表</h2>
+
+      <div class="table-responsive">
+        <input class="form-control col-6" type="text" placeholder="查找" aria-label="Search">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">姓名</th>
+              <th scope="col">邮箱</th>
+              <th scope="col">电话</th>
+              <th scope="col">组别</th>
+              <th scope="col">身份</th>
+              <th scope="col">年级</th>
+              <th scope="col">导师</th>
+              <th scope="col">工位</th>
+              <th scope="col">负责的设备</th>
+              <th scope="col">使用的设备</th>
+              <th scope="col">操作
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">
+                  <a class="text-decoration-none" href="person1.html">张三</a> </td>
+              <td class="align-middle">123@11.com</td>
+              <td class="align-middle">13852644410</td>
+              <td class="align-middle">
+                  大数据 </td>
+              <td class="align-middle">硕士生</td>
+              <td class="align-middle">2017级</td>
+              <td class="align-middle">李四</td>
+              <td class="align-middle">
+                  <a class="text-decoration-none" href="seat.html">G505-1</a>
+                  </td>
+              <td class="align-middle"></td>
+              <td class="align-middle">
+                  <a class="text-decoration-none" href="equipment1.html">S20211219</a></td>
+              <td>
+                <a class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#editForm">
+                  编辑</a>
+                <button type="button" class="btn btn-sm btn-danger">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="align-middle">李四</td>
+              <td class="align-middle">123@11.com</td>
+              <td class="align-middle">13852644410</td>
+              <td class="align-middle">
+                  大数据 </td>
+              <td class="align-middle">教师</td>
+              <td class="align-middle"></td>
+              <td class="align-middle"></td>
+              <td class="align-middle">
+                  <a class="text-decoration-none" href="seat.html">G505-1</a>
+                  </td>
+              <td class="align-middle"><a class="text-decoration-none" href="equipment1.html">S20211219</a></td>
+              <td class="align-middle">
+                  </td>
+              <td>
+                <a class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#editForm">
+                  编辑</a>
+                <button type="button" class="btn btn-sm btn-danger">删除</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+        </div>
+    </main>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+  </body>
+</html>

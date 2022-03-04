@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>设备管理</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+
+
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        #modalSignin{
+            display: none;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      g.room {
+        opacity: 1;
+      }
+
+      g.room:hover {
+          fill: #007bffcc;
+          cursor: pointer;
+      }
+
+      g.room:hover text {
+          stroke: white;
+      }
+
+      g.disable {
+          fill: rgba(0, 0, 0, .1);
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+      <script>
+          function room_click(evt){
+              window.open("./features.html", "_blank")
+          }
+      </script>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./index.html">实验室资产管理系统</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link" href="./room-all.html">房间和工位管理</a>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown">
+                <a class="nav-link active" data-bs-toggle="dropdown" aria-expanded="false" href="#" role="button"
+                id="dropdown1">设备管理</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown1">
+                    <li><a class="dropdown-item" href="equipment.html">设备管理</a> </li>
+                    <li><a class="dropdown-item" href="equipment-model.html">设备型号管理</a> </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="group.html">人员管理</a>
+        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="person.html">人员管理</a>-->
+<!--        </li>-->
+      </ul>
+        <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a class="nav-link px-3" href="#">登录/登出</a>
+    </div>
+  </div>
+      <form class="d-flex">
+          <select class="form-select" id="country" required>
+                <option value="">Choose...</option>
+                <option>人员</option>
+                <option>设备</option>
+              </select>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+    <main class="container-fluid">
+      <div class="modal fade" id="imageDialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel3">设备型号详细信息</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="col-md-12">
+          类型：笔记本电脑
+        </div>
+        <div class="col-md-12">
+          配置：8G Mem, 1TB HDD, 独立显卡
+        </div>
+        <img class="img-fluid" src="unsplash-photo-2.jpg" alt="暂无图片"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="bg-light p-5 align-items-center text-center">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">S20211219</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <a type="button" class="btn btn-outline-danger" href="equipment.html">
+              删除设备
+            </a>
+            <a type="button" class="btn btn-outline-secondary" href="equipment.html">
+              返回设备列表
+            </a>
+<!--            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
+          </div>
+<!--          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
+<!--            <span data-feather="calendar"></span>-->
+<!--            This week-->
+<!--          </button>-->
+        </div>
+      </div>
+        </div>
+
+
+
+
+      <div class="container">
+
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+
+            <div class="col-12">
+              <label class="form-label">资产编号</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="S20202020" required>
+              <div class="invalid-feedback">
+                  资产编号必填
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">设备型号
+              <a class="text-decoration-none px-1" href="./equipment-model.html">没有该型号，去添加  改成弹窗？</a></label>
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option selected>ThinkCenter,8G Mem, 1TB HDD, 独立显卡,笔记本电脑</option>
+                <option>型号2,xxx配置,笔记本电脑</option>
+              </select>
+              <div class="invalid-feedback">
+                设备型号必填
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">设备类型</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="笔记本电脑" required>
+              <div class="invalid-feedback">
+                  设备类型必填
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">配置</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="8G Mem, 1TB HDD" required>
+              <div class="invalid-feedback">
+                  设备类型必填
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">负责人</label>
+              <select class="form-select" required>
+                <option value="">Choose...</option>
+                <option selected>张三</option>
+              </select>
+              <div class="invalid-feedback">
+                负责人必填
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">购买日期</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="2020-11-22">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <hr class="dropdown-divider">
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">使用者</label>
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option selected>张三</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">所在工位</label>
+
+              <select class="form-select">
+                <option value="">Choose...</option>
+                <option selected>G505多级选择框->G505-1</option>
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">分配日期</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" placeholder="2020-12-01" readonly>
+              </div>
+            </div>
+            <div class="col-md-12">
+
+<!--        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">删除</button>-->
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+            </div>
+
+            </div>
+        </form>
+      </div>
+    </main>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+  </body>
+</html>

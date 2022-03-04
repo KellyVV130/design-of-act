@@ -73,14 +73,21 @@
 <!--          <a class="nav-link" href="./seat.html">工位管理</a>-->
 <!--        </li>-->
         <li class="nav-item">
-          <a class="nav-link" href="./equipment.html">设备管理</a>
+            <div class="dropdown">
+                <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#" role="button"
+                id="dropdown1">设备管理</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown1">
+                    <li><a class="dropdown-item" href="equipment.html">设备管理</a> </li>
+                    <li><a class="dropdown-item" href="equipment-model.html">设备型号管理</a> </li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="group.html">人员组管理</a>
+          <a class="nav-link" href="group.html">人员管理</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">人员管理</a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="person.html">人员管理</a>-->
+<!--        </li>-->
       </ul>
         <div class="navbar-nav">
     <div class="nav-item text-nowrap">
@@ -108,7 +115,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">编辑房间</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
       </div>
       <div class="modal-body">
         <form class="needs-validation" novalidate>
@@ -142,7 +149,6 @@
               <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">编号</th>
               <th scope="col">工位名称</th>
               <th scope="col">操作
               </th>
@@ -153,108 +159,10 @@
           </thead>
           <tbody>
             <tr>
-              <td>1,001</td>
-              <td>random</td>
+              <td>G505-1</td>
               <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+                <a type="button" class="btn btn-sm btn-secondary" href="seat.html">查看详情</a>
+                <button type="button" class="btn btn-sm btn-danger">删除</button>
               </td>
             </tr>
           </tbody>
@@ -264,7 +172,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
       </div>
     </div>
@@ -275,7 +183,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel12">新建工位</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
       </div>
       <div class="modal-body">
         <form class="needs-validation" novalidate>
@@ -327,13 +235,13 @@
           <tbody>
             <tr>
               <td class="align-middle">1</td>
-              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle">张三</td>
               <td class="align-middle">硕士生</td>
               <td class="align-middle">123@123.com</td>
               <td class="align-middle">10086</td>
               <td>
-                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
-                <button type="button" class="btn btn-sm btn-secondary">解除关系</button>
+                <a type="button" class="btn btn-sm btn-secondary" href="person1.html">查看详情</a>
+                <button type="button" class="btn btn-sm btn-danger">解除关系</button>
               </td>
             </tr>
           </tbody>
@@ -343,7 +251,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
       </div>
     </div>
@@ -354,10 +262,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel1">某工位的全部使用者</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
       </div>
       <div class="modal-body">
 
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">添加使用者
+                  <a class="text-decoration-none float-right">去新建使用者</a></label>
+              <select class="form-select" id="seats114">
+                <option value="">Choose...</option>
+                <option>张三</option>
+              </select>
+            </div>
 
             <div class="col-md-12">
               <table class="table table-striped table-sm">
@@ -376,13 +293,13 @@
           <tbody>
             <tr>
               <td class="align-middle">1</td>
-              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle">张三</td>
               <td class="align-middle">硕士生</td>
               <td class="align-middle">123@123.com</td>
               <td class="align-middle">10086</td>
               <td>
-                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
-                <button type="button" class="btn btn-sm btn-secondary">解除关系</button>
+                <a type="button" class="btn btn-sm btn-secondary" href="person1.html">查看详情</a>
+                <button type="button" class="btn btn-sm btn-danger">解除关系</button>
               </td>
             </tr>
           </tbody>
@@ -390,7 +307,7 @@
             </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
       </div>
     </div>
@@ -401,7 +318,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel11">某工位的全部设备</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
       </div>
       <div class="modal-body">
 
@@ -419,12 +336,12 @@
           </thead>
           <tbody>
             <tr>
-              <td class="align-middle">1</td>
+              <td class="align-middle">S10101998</td>
               <td class="align-middle">台式机</td>
-              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle"><a class="text-decoration-none" href="person1.html">张三</a></td>
               <td class="align-middle"><a class="text-decoration-none">李四</a></td>
               <td>
-                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
+                <a type="button" class="btn btn-sm btn-secondary" href="equipment1.html">查看详情</a>
               </td>
             </tr>
           </tbody>
@@ -432,7 +349,7 @@
             </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
       </div>
     </div>
   </div>
@@ -442,7 +359,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel2">管理工位</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
       </div>
       <div class="modal-body">
         <form class="needs-validation" novalidate>
@@ -494,13 +411,13 @@
           <tbody>
             <tr>
               <td class="align-middle">1</td>
-              <td class="align-middle"><a class="text-decoration-none">张三</a></td>
+              <td class="align-middle">张三</td>
               <td class="align-middle">硕士生</td>
               <td class="align-middle">123@123.com</td>
               <td class="align-middle">10086</td>
               <td>
-                <button type="button" class="btn btn-sm btn-secondary">查看详情</button>
-                <button type="button" class="btn btn-sm btn-secondary">解除关系</button>
+                <a type="button" class="btn btn-sm btn-secondary" href="person1.html">查看详情</a>
+                <button type="button" class="btn btn-sm btn-danger">解除关系</button>
               </td>
             </tr>
           </tbody>
@@ -510,7 +427,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">删除</button>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
       </div>
@@ -556,16 +473,15 @@
             <tr>
 
               <td class="align-middle">
-                G505-1</td>
+                <a class="text-decoration-none" href="seat.html">G505-1</a>
+                </td>
               <td class="align-middle">
                 <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#allForm">人员1名字，人员2名字，点击有弹窗显示全部</a>
               </td>
               <td>
                 <a class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#editForm2">
                   编辑</a>
-<!--                <a class="btn btn-sm btn-secondary" href="seat-manage.html">-->
-<!--                  详情</a>-->
-                <button type="button" class="btn btn-sm btn-secondary">删除</button>
+                <button type="button" class="btn btn-sm btn-danger">删除</button>
               </td>
             </tr>
 

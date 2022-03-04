@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>设备管理</title>
+    <title>设备型号管理</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
@@ -74,7 +74,7 @@
         </li>
         <li class="nav-item">
             <div class="dropdown">
-                <a class="nav-link active" aria-current="page" data-bs-toggle="dropdown" aria-expanded="false" href="#" role="button"
+                <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#" role="button"
                 id="dropdown1">设备管理</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
                     <li><a class="dropdown-item" href="equipment.html">设备管理</a> </li>
@@ -111,10 +111,10 @@
 
     <main class="container-fluid">
         <div class="modal fade" id="newForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">新建设备</h5>
+        <h5 class="modal-title" id="exampleModalLabel">新建设备型号</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
       </div>
       <div class="modal-body">
@@ -122,74 +122,42 @@
           <div class="row g-3">
 
             <div class="col-12">
-              <label for="username" class="form-label">资产编号</label>
+              <label for="username" class="form-label">型号名称</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="username" placeholder="资产编号" required>
+                <input type="text" class="form-control" id="username" placeholder="型号名称" required>
               <div class="invalid-feedback">
-                  资产编号必填
+                  型号名称必填
                 </div>
               </div>
             </div>
 
             <div class="col-md-12">
-              <label for="country" class="form-label">设备型号
-              <a class="text-decoration-none px-1" href="./equipment-model.html">没有该型号，去添加  改成弹窗？</a></label>
-              <select class="form-select" id="seats2">
-                <option value="">Choose...</option>
-                <option>型号1,xxx配置,台式机</option>
-                <option>型号2,xxx配置,笔记本电脑</option>
-              </select>
-              <div class="invalid-feedback">
-                设备型号必填
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="username" class="form-label">设备类型</label>
-              <div class="input-group has-validation">
-                <input type="text" class="form-control" id="type" placeholder="选定型号后自动填充" required>
-              <div class="invalid-feedback">
-                  设备类型必填
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-12">
-              <label for="country" class="form-label">负责人</label>
+              <label for="country" class="form-label">设备类别</label>
               <select class="form-select" id="seats" required>
                 <option value="">Choose...</option>
-                <option>张三</option>
+                <option>台式机</option>
+                <option>笔记本电脑</option>
               </select>
               <div class="invalid-feedback">
-                负责人必填
+                请选择设备类别
               </div>
             </div>
 
-            <div class="col-12">
-              <label for="username" class="form-label">购买日期</label>
+              <div class="col-md-12">
+                 <hr class="dropdown-divider">
+              </div>
+
+            <div class="col-md-12">
+              <label for="country" class="form-label">设备配置</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="username2" placeholder="购买日期">
+                <input type="text" class="form-control" id="config" placeholder="请填写设备配置">
               </div>
             </div>
-            <div class="col-md-12">
-              <hr class="dropdown-divider">
-            </div>
 
             <div class="col-md-12">
-              <label for="country" class="form-label">使用者</label>
-              <select class="form-select" id="seats1">
-                <option value="">Choose...</option>
-                <option>张三</option>
-              </select>
-            </div>
-
-            <div class="col-md-12">
-              <label class="form-label">所在工位</label>
-
-              <select class="form-select">
-                <option value="">Choose...</option>
-                <option>G505多级选择框->G505-1</option>
-              </select>
+              <label for="country" class="form-label">设备型号图片</label>
+                <input class="form-control" type="file" id="formFile">
+                <img src="unsplash-photo-2.jpg" class="img-fluid" alt="...">
             </div>
 
             </div>
@@ -197,17 +165,16 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">删除</button>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
       </div>
     </div>
   </div>
 </div>
-        <div class="modal fade" id="editForm" tabindex="-1" aria-labelledby="editFormlabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade" id="editForm" tabindex="-1" aria-labelledby="editModel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editFormlabel">编辑设备</h5>
+        <h5 class="modal-title" id="editModel">编辑设备型号</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
       </div>
       <div class="modal-body">
@@ -215,81 +182,42 @@
           <div class="row g-3">
 
             <div class="col-12">
-              <label class="form-label">资产编号</label>
+              <label for="modelName" class="form-label">型号名称</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" placeholder="资产编号" required>
+                <input type="text" class="form-control" id="modelName" placeholder="型号名称" required>
               <div class="invalid-feedback">
-                  资产编号必填
+                  型号名称必填
                 </div>
               </div>
             </div>
 
             <div class="col-md-12">
-              <label class="form-label">设备型号
-              <a class="text-decoration-none px-1" href="./equipment-model.html">没有该型号，去添加  改成弹窗？</a></label>
-              <select class="form-select">
+              <label for="type" class="form-label">设备类别</label>
+              <select class="form-select" id="type" required>
                 <option value="">Choose...</option>
-                <option>型号1,xxx配置,台式机</option>
-                <option>型号2,xxx配置,笔记本电脑</option>
+                <option>台式机</option>
+                <option>笔记本电脑</option>
               </select>
               <div class="invalid-feedback">
-                设备型号必填
+                请选择设备类别
               </div>
             </div>
 
-            <div class="col-12">
-              <label class="form-label">设备类型</label>
+              <div class="col-md-12">
+                 <hr class="dropdown-divider">
+              </div>
+
+            <div class="col-md-12">
+              <label for="configs" class="form-label">设备配置</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" placeholder="选定型号后自动填充" required>
-              <div class="invalid-feedback">
-                  设备类型必填
-                </div>
+                <input type="text" class="form-control" id="configs" placeholder="请填写设备配置">
               </div>
             </div>
 
             <div class="col-md-12">
-              <label class="form-label">负责人</label>
-              <select class="form-select" required>
-                <option value="">Choose...</option>
-                <option>张三</option>
-              </select>
-              <div class="invalid-feedback">
-                负责人必填
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label class="form-label">购买日期</label>
-              <div class="input-group has-validation">
-                <input type="text" class="form-control" placeholder="购买日期">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <hr class="dropdown-divider">
-            </div>
-
-            <div class="col-md-12">
-              <label class="form-label">使用者</label>
-              <select class="form-select">
-                <option value="">Choose...</option>
-                <option>张三</option>
-              </select>
-            </div>
-
-            <div class="col-md-12">
-              <label class="form-label">所在工位</label>
-
-              <select class="form-select">
-                <option value="">Choose...</option>
-                <option>G505多级选择框->G505-1</option>
-              </select>
-            </div>
-
-            <div class="col-12">
-              <label class="form-label">分配日期</label>
-              <div class="input-group has-validation">
-                <input type="text" class="form-control" placeholder="2020-12-01" readonly>
-              </div>
+              <label for="img" class="form-label">设备型号图片</label>
+                <input class="form-control" type="file" id="img">
+                <img src="unsplash-photo-2.jpg" class="img-fluid" alt="...">
             </div>
 
             </div>
@@ -303,7 +231,7 @@
     </div>
   </div>
 </div>
-      <div class="modal fade" id="imageDialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="imageDialog" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -311,14 +239,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
       </div>
       <div class="modal-body">
-
         <div class="col-md-12">
           类型：笔记本电脑
         </div>
         <div class="col-md-12">
           配置：8G Mem, 1TB HDD, 独立显卡
         </div>
-        <img class="img-fluid" src="unsplash-photo-2.jpg" alt="暂无图片"/>
+
+        <img class="img-fluid" src="unsplash-photo-1.jpg" alt="暂无图片"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
@@ -328,14 +256,11 @@
 </div>
         <div class="bg-light p-5 align-items-center text-center">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">设备管理</h1>
+        <h1 class="h2">设备型号管理</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">
-              新建设备
-            </button>
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newForm">
-              批量导入 <!--TODO 弹窗上传文件-->
+              新建设备型号
             </button>
 <!--            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
           </div>
@@ -354,55 +279,25 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">资产编号</th>
+              <th scope="col">型号名称</th>
               <th scope="col">设备类型</th>
-              <th scope="col">设备型号</th>
               <th scope="col">配置</th>
-              <th scope="col">负责人</th>
-              <th scope="col">使用者</th>
-              <th scope="col">
-                购买日期
-              </th>
-              <th scope="col">分配日期</th>
-              <th scope="col">工位</th>
+              <th scope="col">图片</th>
               <th scope="col">操作
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="align-middle">
-                <a class="text-decoration-none" href="equipment1.html">S20211219</a> </td>
+              <td class="align-middle">ThinkCenter</td>
               <td class="align-middle">笔记本电脑</td>
-              <td class="align-middle">
-                <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#imageDialog">ThinkCenter</a></td>
               <td class="align-middle">8G Mem, 1TB HDD, 独立显卡</td>
-              <td class="align-middle"><a class="text-decoration-none" href="person1.html">张三</a></td>
-              <td class="align-middle"><a class="text-decoration-none" href="person1.html">李四</a></td>
-              <td class="align-middle">2020-12-01</td>
-              <td class="align-middle">2020-12-01</td>
-              <td class="align-middle"></td>
-              <td>
-                <a class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#editForm">
-                  编辑</a>
-                <button type="button" class="btn btn-sm btn-danger">删除</button>
+              <td class="align-middle">
+                  <img src="unsplash-photo-2.jpg" width="200">
               </td>
-            </tr>
-            <tr>
-              <td class="align-middle">
-                <a class="text-decoration-none" href="equipment1.html">S20211210</a></td>
-              <td class="align-middle">笔记本电脑</td>
-              <td class="align-middle"><a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#imageDialog">ThinkCenter</a></td>
-              <td class="align-middle">8G Mem, 1TB HDD, 独立显卡</td>
-              <td class="align-middle"><a class="text-decoration-none" href="person1.html">张三</a></td>
-              <td></td>
-              <td class="align-middle">2020-11-02</td>
-              <td class="align-middle"></td>
-              <td class="align-middle"><a class="text-decoration-none" href="./seat.html">G505-1</a></td>
-              <td>
+                <td class="align-middle">
                 <a class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#editForm">
                   编辑</a>
-                </button>
                 <button type="button" class="btn btn-sm btn-danger">删除</button>
               </td>
             </tr>
