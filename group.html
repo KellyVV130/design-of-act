@@ -134,10 +134,12 @@
             <div class="col-md-12">
               <label for="country" class="form-label">添加成员
                   <a class="text-decoration-none float-right">去新建成员</a></label>
-              <select class="form-select" id="seats114">
-                <option value="">Choose...</option>
-                <option>张三</option>
-              </select>
+
+              <input class="form-control" list="peoples" placeholder="请搜索人员">
+              <datalist id="peoples">
+                <option value="">李四</option>
+                <option selected>张三</option>
+              </datalist>
             </div>
 
             <div class="col-md-12">
@@ -203,12 +205,14 @@
             </div>
 
             <div class="col-md-12">
-              <label for="addUsers" class="form-label">添加成员
+              <label class="form-label">添加成员
                   <a class="text-decoration-none float-right">去新建成员</a></label>
-              <select class="form-select" id="addUsers">
-                <option value="">Choose...</option>
-                <option>张三</option>
-              </select>
+
+              <input class="form-control" list="peoples" placeholder="请搜索人员">
+<!--              <datalist id="peoples">-->
+<!--                <option value="">李四</option>-->
+<!--                <option selected>张三</option>-->
+<!--              </datalist>-->
             </div>
 
             <div class="col-md-12">

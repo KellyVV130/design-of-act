@@ -54,8 +54,18 @@
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
       <script>
-          function room_click(evt){
-              window.open("./features.html", "_blank")
+          function pickRoom(evt){
+              let whole = document.getElementById("wholePic");
+              let room = document.getElementById("roomPic");
+              whole.style.display="none";
+              room.style.display = "block";
+          }
+          function  resetRoom(){
+              
+              let whole = document.getElementById("wholePic");
+              let room = document.getElementById("roomPic");
+              whole.style.display="block";
+              room.style.display = "none";
           }
       </script>
   </head>
@@ -109,7 +119,163 @@
 
 
 
-    <main class="container-fluid"><!--TODO 某些信息是保存还是从邮件系统获取-->>
+    <main class="container-fluid"><!--TODO 某些信息是保存还是从邮件系统获取-->
+        <div class="modal fade" id="roomPicker" tabindex="-1" aria-labelledby="roomPickerLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>选择工位</h5>
+                    </div>
+                    <div class="modal-body">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="transparent" stroke="black" width="1500" height="600" id="wholePic">
+        <defs>
+            <g id="tizi">
+                <line x="0" y="0" x2="90" y2="0" stroke-dasharray="1,5" />
+                <line x="0" y="0" x2="90" y2="0" stroke-width="1" transform="translate(0,13)" />
+                <line x="0" y="0" x2="90" y2="0" stroke-dasharray="1,5" transform="translate(3,25)" />
+            </g>
+            <g id="dianti">
+                <rect x="0" y="0" width="100" height="100" />
+                <rect x="10" y="5" width="80" height="10" fill="white" />
+                <rect x="5" y="20" width="90" height="75" fill="white" />
+                <line x1="5" y1="20" x2="95" y2="95" />
+                <line x1="95" y1="20" x2="5" y2="95" />
+                <rect x="10" y="98" width="35" height="2" />
+                <rect x="55" y="98" width="35" height="2" />
+            </g>
+        </defs>
+        <g class="room" transform="translate(0, 0)" id="G505" onclick="pickRoom(evt)">
+            <path d="M0,0l0,160l100,0l0,-60l60,0l0,-100z" />
+            <text x="20" y="20">G505</text>
+        </g>
+        <g class="room" transform="translate(0, 160)">
+            <path d="M0,0l0,120l100,0l0,-120z" />
+            <text x="20" y="20">G504</text>
+        </g>
+        <g class="room" transform="translate(0, 280)">
+            <path d="M0,0l0,120l100,0l0,-120z" />
+            <text x="20" y="20">G503</text>
+        </g>
+        <g class="disable" transform="translate(0, 400)">
+            <path d="M0,0l0,100l100,0l0,-100z" />
+            <text x="20" y="20">楼梯间</text>
+            <use xlink:href="#tizi" stroke-width="25" x="10" y="13" />
+        </g>
+        <g class="disable" transform="translate(0, 500)">
+            <path d="M0,0l0,60l100,0l0,-60z" />
+            <text x="20" y="20">储物室</text>
+        </g>
+        <g class="room" transform="translate(160, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G506</text>
+        </g>
+        <g class="room" transform="translate(300, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G507</text>
+        </g>
+        <g class="disable" transform="translate(440, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G508</text>
+        </g>
+        <g class="disable" transform="translate(580, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G510</text>
+        </g>
+        <g class="room" transform="translate(720, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G512</text>
+        </g>
+        <g class="room" transform="translate(860, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G513</text>
+        </g>
+        <g class="room" transform="translate(1000, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G514</text>
+        </g>
+        <g class="room" transform="translate(1140, 0)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G516</text>
+        </g>
+        <g class="disable" transform="translate(1280, 0)">
+            <path d="M0,0l0,50l160,0l0,-50z" />
+            <text x="10" y="20">楼梯</text>
+            <use xlink:href="#tizi" stroke-width="25" x="50" y="13" />
+            <path d="M0,50l0,50l160,0l0,-50z" />
+            <text x="20" y="70">电梯</text>
+        </g>
+        <g class="disable" transform="translate(160, 160)">
+            <path d="M0,0l0,240l280,0l0,-240z" />
+            <text x="20" y="20">天井</text>
+        </g>
+        <g class="disable" transform="translate(440, 160)">
+            <path d="M0,0l0,240l140,0l0,-240z" />
+            <text x="20" y="20">电梯间</text>
+            <use xlink:href="#tizi" stroke-width="25" x="15" y="153" />
+            <use xlink:href="#dianti" x="30" y="80" transform="scale(.4,.4)" />
+            <use xlink:href="#dianti" x="140" y="80" transform="scale(.4,.4)" />
+            <use xlink:href="#dianti" x="30" y="250" transform="scale(.4,.4) rotate(180 80 300)" />
+            <use xlink:href="#dianti" x="140" y="250" transform="scale(.4,.4) rotate(180 190 300)" />
+        </g>
+        <g class="room" transform="translate(160, 400)">
+            <path d="M0,0l0,160l280,0l0,-40,l-40,0l0,-120z" />
+            <text x="20" y="20">G501/G502</text>
+        </g>
+        <g class="disable" transform="translate(400, 400)">
+            <path d="M0,0l0,120l40,0l0,40l140,0l0,-40l0,-120z" />
+            <text x="20" y="20">机房</text>
+        </g>
+        <g class="room" transform="translate(720, 160)">
+            <path d="M0,0l0,240l140,0l0,-240z" />
+            <text x="20" y="20">G511/G522</text>
+        </g>
+        <g class="disable" transform="translate(860, 160)">
+            <path d="M0,0l0,240l280,0l0,-240z" />
+            <text x="20" y="20">天井</text>
+        </g>
+        <g class="room" transform="translate(1140, 160)">
+            <path d="M0,0l0,240l140,0l0,-240z" />
+            <text x="20" y="20">G515/G518</text>
+        </g>
+        <g class="disable" transform="translate(1340, 160)">
+            <path d="M0,0l0,240l100,0l0,-240z" />
+            <path d="M0,100l40,0l0,40l-40,0" fill="none" />
+            <path d="M40,120l60,0" />
+            <text x="20" y="20">卫生间</text>
+        </g>
+        <g class="disable" transform="translate(1280, 460)">
+            <path d="M0,0l0,50l160,0l0,-50z" />
+            <text x="20" y="20">电梯</text>
+            <path d="M0,50l0,50l160,0l0,-50z" />
+            <text x="20" y="70">楼梯</text>
+            <use xlink:href="#tizi" stroke-width="25" x="50" y="63" />
+        </g>
+        <g class="room" transform="translate(1140, 460)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G517</text>
+        </g>
+        <g class="room" transform="translate(1000, 460)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G519</text>
+        </g>
+        <g class="room" transform="translate(860, 460)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G520</text>
+        </g>
+        <g class="room" transform="translate(720, 460)">
+            <path d="M0,0l0,100l140,0l0,-100z" />
+            <text x="20" y="20">G521</text>
+        </g>
+    </svg>
+                        <img src="room.png" width="1500" height="600" style="display: none;" id="roomPic">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" onclick="resetRoom()">关闭</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal" onclick="resetRoom()">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="bg-light p-5 align-items-center">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">张三</h1>
@@ -198,10 +364,11 @@
 
             <div class="col-md-12">
               <label class="form-label">导师??</label>
-              <select class="form-select">
-                <option value="">Choose...</option>
+              <input class="form-control" list="peoples" placeholder="请搜索热源">
+              <datalist id="peoples">
+                <option value="">张三</option>
                 <option selected>李四</option>
-              </select>
+              </datalist>
             </div>
 
             <div class="col-md-12">
@@ -232,11 +399,12 @@
 
             <div class="col-md-12">
               <label for="country" class="form-label">分配工位
-                  <a class="text-decoration-none float-right">去新建工位</a></label>
-              <select class="form-select">
-                <option value="">Choose...</option>
-                <option>G505-1</option>
-              </select>
+                  <a class="text-decoration-none float-right">去新建工位</a></label><br>
+<!--              <select class="form-select">-->
+<!--                <option value="">Choose...</option>-->
+<!--                <option>G505-1</option>-->
+<!--              </select>-->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#roomPicker">选择工位</button>
             </div>
 
             <div class="col-md-12">
@@ -265,10 +433,11 @@
             <div class="col-md-12">
               <label for="country" class="form-label">添加学生
                   <a class="text-decoration-none float-right">去新建人员</a></label>
-              <select class="form-select">
-                <option value="">Choose...</option>
-                <option>张三</option>
-              </select>
+              <input class="form-control" list="peoples" placeholder="请搜索人员">
+<!--              <datalist id="peoples">-->
+<!--                <option value="">S29102938</option>-->
+<!--                <option selected>s28394820</option>-->
+<!--              </datalist>-->
             </div>
 
             <div class="col-md-12">

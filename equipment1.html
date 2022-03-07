@@ -175,11 +175,12 @@
             <div class="col-md-12">
               <label class="form-label">设备型号
               <a class="text-decoration-none px-1" href="./equipment-model.html">没有该型号，去添加  改成弹窗？</a></label>
-              <select class="form-select">
-                <option value="">Choose...</option>
+
+                <input class="form-control" list="xinghaos" placeholder="请搜索型号">
+              <datalist id="xinghaos">
                 <option selected>ThinkCenter,8G Mem, 1TB HDD, 独立显卡,笔记本电脑</option>
                 <option>型号2,xxx配置,笔记本电脑</option>
-              </select>
+              </datalist>
               <div class="invalid-feedback">
                 设备型号必填
               </div>
@@ -207,10 +208,11 @@
 
             <div class="col-md-12">
               <label class="form-label">负责人</label>
-              <select class="form-select" required>
-                <option value="">Choose...</option>
+              <input class="form-control" list="peoples" placeholder="请搜索人员">
+              <datalist id="peoples">
+                <option value="">李四</option>
                 <option selected>张三</option>
-              </select>
+              </datalist>
               <div class="invalid-feedback">
                 负责人必填
               </div>
@@ -228,10 +230,11 @@
 
             <div class="col-md-12">
               <label class="form-label">使用者</label>
-              <select class="form-select">
-                <option value="">Choose...</option>
-                <option selected>张三</option>
-              </select>
+              <input class="form-control" list="peoples" placeholder="请搜索人员">
+<!--              <datalist id="peoples">-->
+<!--                <option value="">李四</option>-->
+<!--                <option selected>张三</option>-->
+<!--              </datalist>-->
             </div>
 
             <div class="col-md-12">
